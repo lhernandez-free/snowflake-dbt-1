@@ -5,7 +5,7 @@ aws_eu_central:
       user: "{{ env_var('DBT_DATABASE_USERNAME') }}"
       password: "{{ env_var('DBT_DATABASE_PASSWORD') }}"
       role: SYSADMIN
-      database: "{{ env_var('DBT_DATABASE_NAME_ENV') }}"
+      database: "{{ env_var('DBT_DATABASE_NAME') }}"
       schema: raw
       threads: 5
       type: snowflake

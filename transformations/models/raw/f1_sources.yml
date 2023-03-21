@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: formula
     description: formula 1 datasets with normalized tables 
-    database: "{{ env_var('DBT_DATABASE_NAME_ENV') }}"
+    database: "{{ env_var('DBT_DATABASE_NAME') }}"
     schema: raw
     tables:
       - name: circuits
