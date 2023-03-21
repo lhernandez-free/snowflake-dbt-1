@@ -27,16 +27,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 on-run-start:
-  - "ALTER WAREHOUSE SMALL_SNOWPARK_DBT SET WAREHOUSE_SIZE = MEDIUM SCALING_POLICY = STANDARD ENABLE_QUERY_ACCELERATION = TRUE;"
+  - "ALTER WAREHOUSE {{ env_var('SMALL_VW') }} SET WAREHOUSE_SIZE = MEDIUM SCALING_POLICY = STANDARD ENABLE_QUERY_ACCELERATION = TRUE;"
 on-run-end:
-  - "ALTER WAREHOUSE SMALL_SNOWPARK_DBT SET WAREHOUSE_SIZE = SMALL SCALING_POLICY = ECONOMY ENABLE_QUERY_ACCELERATION = FALSE;"
+  - "ALTER WAREHOUSE {{ env_var('SMALL_VW') }} SET WAREHOUSE_SIZE = SMALL SCALING_POLICY = ECONOMY ENABLE_QUERY_ACCELERATION = FALSE;"
 
 # In this example config, we tell dbt to build all models in the example/ directory
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 seeds:
   transformations:
-    +snowflake_warehouse: "XSMALL_SNOWPARK_DBT"
+    +snowflake_warehouse: "{{ env_var('XSMALL_VW') }}"
     raw:
       +schema: RAW
       +tags: "RAW"
@@ -73,9 +73,24 @@ seeds:
 
 models:
   transformations:
-    +snowflake_warehouse: "SMALL_SNOWPARK_DBT"
+    +snowflake_warehouse: "{{ env_var('SMALL_VW') }}"
     stg:
       +schema: STG
       +tags: "STG"
       +materialized: table
       +transient: true
+      formula:
+        +tags: "f1"
+        +docs:
+          node_color: "CadetBlue"
+    intermediate:
+      +materialized: table
+      +transient: true
+      +schema: INTERMEDIATE
+      +tags: "f1"
+      node_color: "Maroon"
+    marts:
+      +materialized: table
+      +transient: true
+      +schema: MARTS
+      +tags: "f1"

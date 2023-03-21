@@ -1,0 +1,6 @@
+---
+version: 2
+
+models:
+  - name: stg_f1_lap_times
+    description: 'Simple transformation to move from raw to stg'

@@ -5,20 +5,10 @@ aws_eu_central:
       user: "{{ env_var('DATABASE_USERNAME') }}"
       password: "{{ env_var('DATABASE_PASSWORD') }}"
       role: SYSADMIN
-      database: SNOWPARK_DBT
+      database: "{{ env_var('DATABASE_NAME') }}"
       schema: raw
       threads: 5
       type: snowflake
-      warehouse: XSMALL_SNOWPARK_DBT
+      warehouse: "{{ env_var('XSMALL_VW') }}"
 
-    dev:
-      account: "{{ env_var('ACCOUNT') }}"
-      user: "{{ env_var('DATABASE_USERNAME') }}"
-      password: "{{ env_var('DATABASE_PASSWORD') }}"
-      role: SYSADMIN
-      database: SNOWPARK_DBT_CLONE
-      schema: raw
-      threads: 5
-      type: snowflake
-      warehouse: XSMALL_SNOWPARK_DBT
   target: prod

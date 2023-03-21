@@ -1,0 +1,6 @@
+---
+version: 2
+
+models:
+  - name: stg_f1_constructors
+    description: 'Simple transformation to move from raw to stg'

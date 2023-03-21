@@ -1,0 +1,6 @@
+---
+version: 2
+
+models:
+  - name: stg_f1_pit_stops
+    description: 'Simple transformation to move from raw to stg'
