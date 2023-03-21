@@ -22,8 +22,8 @@ This project is made for UNIX based systems, it is possible to also run it on Wi
   * NOTE: If you get an error running the Stored Procedure saying you do not have Snowpark python enable, please activate and run again. Also add the password to the user (end of file) before running the script.
   * Run the scrip under `sql/env-setup.sql`.
 * 2.Add Snowflake login to the file `.env`, you need to provide the following valid parameters after the equals sign:
-  * ACCOUNT - (**WITHOUT** https:// AND snowflakecomputing.com/... **ONLY** account [locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)) 
-  * DATABASE_USERNAME - Username
+  * DBT_ACCOUNT - (**WITHOUT** https:// AND snowflakecomputing.com/... **ONLY** account [locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html)) 
+  * DBT_DATABASE_PASSWORD - Username
   * DATABASE_PASSWORD - Password
 * 3.Start Docker - If you do not have installed then follow the link in Requirements section.
 * 4.Open up a terminal and navigate to the location where you cloned this repository 

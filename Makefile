@@ -7,9 +7,9 @@ include .env
 .DEFAULT_GOAL := help
 
 checker:
-     $(if $(ACCOUNT),,$(error Must set variable ACCOUNT)) \
-     $(if $(DATABASE_USERNAME),,$(error Must set variable DATABASE_USERNAME)) \
-     $(if $(DATABASE_PASSWORD),,$(error Must set variable DATABASE_PASSWORD))
+     $(if $(DBT_ACCOUNT),,$(error Must set variable DBT_ACCOUNT)) \
+     $(if $(DBT_DATABASE_USERNAME),,$(error Must set variable DBT_DATABASE_USERNAME)) \
+     $(if $(DBT_DATABASE_PASSWORD),,$(error Must set variable DBT_DATABASE_PASSWORD))
 
 .PHONY: setup
 setup: ## 1.-Deploying docker-compose, creating containers.

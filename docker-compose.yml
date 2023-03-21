@@ -9,12 +9,12 @@ services:
     image: dbt-snowflake:latest
     container_name: agent_snowflake
     environment:
-      - ACCOUNT=${ACCOUNT}
-      - DATABASE_USERNAME=${DATABASE_USERNAME}
-      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
-      - DATABASE_NAME=${DATABASE_NAME}
-      - XSMALL_VW=${XSMALL_VW}
-      - SMALL_VW=${SMALL_VW}      
+      - DBT_ACCOUNT=${DBT_ACCOUNT}
+      - DBT_DATABASE_USERNAME=${DBT_DATABASE_USERNAME}
+      - DBT_DATABASE_PASSWORD=${DBT_DATABASE_PASSWORD}
+      - DBT_DATABASE_NAME=${DBT_DATABASE_NAME}
+      - DBT_XSMALL_VW=${DBT_XSMALL_VW}
+      - DBT_SMALL_VW=${DBT_SMALL_VW}      
     stdin_open: true
     tty: true
     restart: on-failure:3
@@ -30,12 +30,12 @@ services:
     image: dbt-transformations-app:latest
     container_name: dbt-docs
     environment:
-      - ACCOUNT=${ACCOUNT}
-      - DATABASE_USERNAME=${DATABASE_USERNAME}
-      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
-      - DATABASE_NAME=${DATABASE_NAME}
-      - XSMALL_VW=${XSMALL_VW}
-      - SMALL_VW=${SMALL_VW}
+      - DBT_ACCOUNT=${DBT_ACCOUNT}
+      - DBT_DATABASE_USERNAME=${DBT_DATABASE_USERNAME}
+      - DBT_DATABASE_PASSWORD=${DBT_DATABASE_PASSWORD}
+      - DBT_DATABASE_NAME=${DBT_DATABASE_NAME}
+      - DBT_XSMALL_VW=${DBT_XSMALL_VW}
+      - DBT_SMALL_VW=${DBT_SMALL_VW}
     ports:
       - "8001:8001"
     restart: on-failure:3

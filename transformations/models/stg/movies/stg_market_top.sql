@@ -1,7 +1,7 @@
 {{
     config(
         post_hook = [
-            "ALTER WAREHOUSE {{ env_var('XSMALL_VW') }} SUSPEND;"
+            "ALTER WAREHOUSE {{ env_var('DBT_XSMALL_VW') }} SUSPEND;"
         ]
     )
 }}
